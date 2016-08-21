@@ -1,12 +1,26 @@
-title {
-
+/*.textColor {
+	color: ##C68E17;
+}
+.nextbox {
+	width: 120px;
+	height: 50px;
+	border: 5px solid #2B65EC; 
+	background-color: #C2DFFF; 
+	text-align: center; 
+	line-height: 50px
 }
 
-h2 {
-
+a:link {
+	color: #E5E4E2;
+	font-family: "Comic Sans MS", cursive, sans-serif;
+	text-decoration: none;
 }
-
-/*#buttonbox {
+a:hover {
+	color: hotpink;
+	font-family: "Comic Sans MS", cursive, sans-serif;
+	text-decoration: none;
+}
+#buttonbox {
 	width: 125px;
 	height: 50px;
 	border: 5px solid #2B65EC; 
@@ -24,26 +38,3 @@ h2 {
 	line-height: 20px;
 }
 */
-
-.textColor {
-	color: ##C68E17;
-}
-.nextbox {
-	width: 120px;
-	height: 50px;
-	border: 5px solid #2B65EC; 
-	background-color: #C2DFFF; 
-	text-align: center; 
-	line-height: 50px
-}
-
-a:link {
-	color: #E5E4E2;
-	font-family: "Comic Sans MS", cursive, sans-serif;
-	text-decoration: none;
-}
-/*a:hover {
-	color: hotpink;
-	font-family: "Comic Sans MS", cursive, sans-serif;
-	text-decoration: none;
-}*/
