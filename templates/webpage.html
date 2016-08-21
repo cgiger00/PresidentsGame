@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang = 'en'>
+	<head>
+		<title>Webpage</title>
+		<meta charset=utf-8>
+		<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='stylesheet.css') }}"/>
+		<script src="{{url_for('static', filename='style.js')}}"></script>
+	</head>
+	<body background-color = '#FFFFFF'>
+		<div class = 'template'>
+			<h1> President Game!  </h1>
+			<h2> Six Point Clue</h2>
+				<div id = '6point'> six point clue displayed here </div>
+			<h2> Four Point Clue </h2>
+				<div id = '4point'> four point clue displayed here </div>
+			<h2> Two Point Clue </h2>
+				<div id = '2point'> two point clue displayed here </div>
+			<p>	
+				<h3> If you know the answer, type the President Number here </h3>
+
+			</p>
+				<input type = 'text' id = 'button'> 
+				<button type = 'submit' onclick = 'submitAnswer()'>Submit</button> <br>
+				<button type = 'button' onclick= 'onClick()' id = 'hide' > Next Clue</button>
+				<p hidden>Clicks: <a id = 'count'> 0 </a></p>
+
+			<!---<div class = 'textColor' id = 'text'>
+				<p>
+					<a onclick = "changeColor('text','#FF0000');"> Press here to change 
+					the color</a>
+				</p>
+			</div>  ---->
+			<p>
+				<div>
+					<input type="button" id="next_question" value="Next Question" disabled onclick = 'reloadPage()'/>
+				</div>
+				<br>
+				<div id = 'points'>No Points</div>
+				<div id = 'score'>Score = </div>
+				<br>
+				<form action = '/finish' method = 'POST'>
+					<button type = 'submit' id = 'finished'>Finish</button>
+				</form>
+			</p>
+		</div> 
+		</body>
+</html>
