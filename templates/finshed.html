@@ -1,32 +1,33 @@
 <!DOCTYPE html>
 <html lang = 'en'>
 	<head>
+	<meta charset=utf-8 />
 		<title> Answer Check </title>
-		<style>
-			table, th, td {
-			    border: 1px solid black;
-			    border-collapse: collapse;
-			}
-			th, td {
-			    padding: 5px;
-			    text-align: left;
-			}
+		<style type="text/css">
+			body {margin: 30px;}
 		</style>
+		<script type = "text/javascript" src= "{{url_for('static', filename='style.js')}}">  
+		</script>			
 	</head>
 	<body>
-		<table style = 'width:100%'>
-			<tr>
-				<th>Question Number:</th>
-				<td> filler</td>
-			</tr>
-			<tr>
-				<th>Points:</th>
-				<td>filler</td>
-			</tr>
-			<tr>
-				<th>Points Possible:</th>
-				<td>6</td>
-			</tr>
-		</table>
+		<div>
+		<p>
+			<table id = 'question_number' border="1" style = 'float:left;'>
+				<td>Question Number</td>					
+			</table>
+			<table id = 'points_possible' border="1" style = 'float:left;'>
+				<td>Points Possbile</td>
+			</table>
+			<table id = 'points_got' border="1" style = 'float:left;'>
+				<td>Points Got</td>
+			</table>
+		</p>
+		</div>
+		<br>
+		<div>
+			<p>
+				<button type = 'text' onclick="showRows();" id = 'button'>see Results</button>	
+			</p>
+		</div>
 	</body>
 </html>

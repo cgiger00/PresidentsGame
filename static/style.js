@@ -1,15 +1,3 @@
-
-function changeColor(id, newColor) 
-{
-	var word = document.getElementById(id);
-	word.style.color = newColor;
-}
-
-function submitForm()
-{
-	document.getElementById('form1').submit();
-}
-
 var answers = [ 18 , 7 , 1, 3 ];
 
 function myAnswer(answer_list) 
@@ -80,11 +68,16 @@ var pres_dict = {
 };
 
 
-var count = 0;
-
-
-var score = JSON.parse(sessionStorage.getItem('score'));
+var count = 0; //for which point clue
+var score = JSON.parse(sessionStorage.getItem('score')); //total score
 var correct = myAnswer(answers);
+var page_load = JSON.parse(sessionStorage.getItem('page_load')); //for table 
+
+var question_storage = JSON.parse(sessionStorage.getItem('question_storage')); //points for table
+
+if (question_storage == null) {
+	question_storage = [];
+}
 
 console.log(correct);
 
@@ -100,7 +93,6 @@ function which_clue(dictionary,key){
 	}
 
 };
-
 
 function onClick() {
 	printClue(which_clue(pres_dict, correct));
@@ -126,23 +118,30 @@ function checkAnswer(right,guess,points) {
 	if (guess == right) {
 		if (points <= 1) {
 			point_worth = 6;
+			question_storage.push(point_worth);
 			score += 6;
 			changeColor("#00FF00");
 			return [score, point_worth];
 		}
 		else if (points == 2) {
 			point_worth = 4;
+			question_storage.push(point_worth);
 			score += 4;
 			changeColor("#00FF00");
 			return [score, point_worth];
 		}
 		else {
 			point_worth = 2;
+			question_storage.push(point_worth);
 			score +=2;
 			changeColor("#00FF00");
-			return [score, point_worth];		}
+			return [score, point_worth];		
+		}
 	}
 	else {
+		point_worth = 0; /*!!!!!!*/
+		question_storage.push(point_worth);
+		console.log(question_storage);
 		changeColor('#F75D59');
 		return [score, point_worth];
 	}
@@ -173,7 +172,6 @@ function pointsGot(elementId,point_get) {
 	document.getElementById(elementId).innerHTML = point_get + ' Points'
 }
 
-
 function submitAnswer() {
 	var input = document.getElementById('button').value;
 	var final_count = which_clue(pres_dict,correct);
@@ -182,16 +180,79 @@ function submitAnswer() {
 	pointsGot('points', score_total[1]);
 	show('next_question');
 	hide.disabled = true;
+	submit.disabled = true;
+
 }
 
+function makeTable(number,elementId) {
+	console.log('work');
+	var row_number = number;
+	var column_number = 3;
+
+	for (var row = 0; row < row_number; row++) {
+		var table_place = document.getElementById(elementId).insertRow(row);
+		for (var column; column < (column_number + 1); column++) {
+			var table = table_place.insertCell(column);
+			table.innerHTML = 'filler';
+		}
+	}
+}
+
+function tableLoad() {
+	makeTable(page_load,'table');
+}
+
+console.log(question_storage);
 
 function reloadPage() {
+	page_load = page_load + 1;
+	sessionStorage.setItem('page_load', JSON.stringify(page_load));
 	sessionStorage.setItem('score', JSON.stringify(score));
+	sessionStorage.setItem('question_storage', JSON.stringify(question_storage));
 	window.location.reload();
 }
-
-
-
+function getQuestionArray() {
+	return question_storage;
+}
+function appendRow(tableID, variable,option) {
+	if (option == 0){
+		for (i = variable; i > 0; i--) {
+			var tableRef = document.getElementById(tableID);					
+			var newRow = tableRef.insertRow(1);
+			var newCell = newRow.insertCell(0);
+			var newText = document.createTextNode(i);
+			newCell.appendChild(newText);
+			}
+	}
+	else if (option == 1){
+		for (i = variable; i > 0; i--) {
+			var tableRef = document.getElementById(tableID);					
+			var newRow = tableRef.insertRow(1);
+			var newCell = newRow.insertCell(0);
+			var newText = document.createTextNode(6);
+			newCell.appendChild(newText);
+			}		
+		}
+	else if (option == 2) {
+		var point_array = getQuestionArray();
+		for (i = variable; i > 0; i--) {
+			var tableRef = document.getElementById(tableID);					
+			var newRow = tableRef.insertRow(1);
+			var newCell = newRow.insertCell(0);
+			var newText = document.createTextNode(point_array[(i-1)]);
+			newCell.appendChild(newText);
+		}		
+	}		
+	else {
+		return 0;
+	}	
+}
+function showRows() {
+	appendRow('question_number',page_load, 0); 
+	appendRow('points_possible',page_load, 1); 
+	appendRow('points_got',page_load, 2);
+	button.style.visibility = 'hidden';
+}
 
 
 
