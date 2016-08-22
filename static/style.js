@@ -214,43 +214,68 @@ function reloadPage() {
 function getQuestionArray() {
 	return question_storage;
 }
-function appendRow(tableID, variable,option) {
+
+function appendRow(tableID, insert_row, text) {
+	var tableRef = document.getElementById(tableID);					
+	var newRow = tableRef.insertRow(insert_row);
+	var newCell = newRow.insertCell(0);
+	var newText = document.createTextNode(text);
+	newCell.appendChild(newText);	
+}
+
+function makeTable(variable,option, tableID) {
 	if (option == 0){
 		for (i = variable; i > 0; i--) {
-			var tableRef = document.getElementById(tableID);					
-			var newRow = tableRef.insertRow(1);
-			var newCell = newRow.insertCell(0);
-			var newText = document.createTextNode(i);
-			newCell.appendChild(newText);
-			}
+			appendRow(tableID, 1, i);
+		}
+		appendRow(tableID, -1, 'Total:')
 	}
 	else if (option == 1){
 		for (i = variable; i > 0; i--) {
-			var tableRef = document.getElementById(tableID);					
-			var newRow = tableRef.insertRow(1);
-			var newCell = newRow.insertCell(0);
-			var newText = document.createTextNode(6);
-			newCell.appendChild(newText);
-			}		
+			appendRow(tableID, 1, 6);
 		}
+		total_possible = page_load * 6	
+		appendRow(tableID, -1, total_possible)	
+		return total_possible;	
+	}
 	else if (option == 2) {
 		var point_array = getQuestionArray();
+		var your_total = 0;
 		for (i = variable; i > 0; i--) {
-			var tableRef = document.getElementById(tableID);					
-			var newRow = tableRef.insertRow(1);
-			var newCell = newRow.insertCell(0);
-			var newText = document.createTextNode(point_array[(i-1)]);
-			newCell.appendChild(newText);
-		}		
+			appendRow(tableID, 1, point_array[(i-1)]);
+			your_total = your_total + point_array[(i-1)];
+		}
+		appendRow(tableID, -1, your_total);
+		return your_total;		
 	}		
 	else {
 		return 0;
 	}	
 }
+
+function gradeCalculator(result, perfect, elementId) {
+	var grade = (result / perfect) * 100;
+	var letter_grade;
+	if (grade >= 90) {
+		letter_grade = 'A'; 
+	}
+	else if (grade >= 80) {
+		letter_grade = 'B';
+	}
+	else if (grade >= 70) {
+		letter_grade = 'C';
+	}
+	else if (grade >= 60) {
+		letter_grade = 'D';  
+	}
+	else {
+		letter_grade = 'F'
+	}
+	document.getElementById(elementId).innerHTML = 'Grade: ' + letter_grade + ', ' + grade + '%';
+}
 function showRows() {
-	appendRow('question_number',page_load, 0); 
-	appendRow('points_possible',page_load, 1); 
-	appendRow('points_got',page_load, 2);
+	makeTable(page_load, 0, 'question_number');
+	gradeCalculator(makeTable(page_load, 2, 'points_got'),makeTable(page_load, 1, 'points_possible'), 'grade');
 	button.style.visibility = 'hidden';
 }
 
