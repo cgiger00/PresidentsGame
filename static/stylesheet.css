@@ -1,3 +1,48 @@
+body {
+	background-image: url('14-wrinkled-paper-6.jpg');
+}
+h1 {
+	color: black;
+	font-family: copperplate;
+}
+
+h2 {
+	color: black;
+	font-family: palatino;
+	font-size: 1.5em;	
+}
+
+h3 {
+	color: black;
+	font-family: palatino;
+	font-size: 1.0em;	
+}
+.press_button  {
+	width: 105px;
+	height: 40px;
+	border: 2px solid #2B65EC; 
+	background-color: #C2DFFF; 
+	text-align: center; 
+	font-family: "copperplate", cursive, sans-serif;
+	font-size: 0.8em;
+	border-radius: 3px;
+}
+
+.input {
+	width: 100px;
+	height: 35px;
+	border: 1px solid black; 
+	border-radius: 3px;
+}
+.filler {
+	font: italic; 
+	font-family: baskerville;
+	color: #B6B6B4;
+}
+
+.score {
+	font-family: palatino;
+}
 /*.textColor {
 	color: ##C68E17;
 }

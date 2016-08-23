@@ -8,31 +8,32 @@
 	</head>
 	<body background-color = '#FFFFFF'>
 		<div class = 'template'>
-			<h1> President Game!  </h1>
+			<h1> President Game</h1>
 			<h2> Six Point Clue</h2>
-				<div id = '6point'> six point clue displayed here </div>
+				<div class = 'filler' id = '6point'><i> six point clue displayed here</i> </div>
 			<h2> Four Point Clue </h2>
-				<div id = '4point'> four point clue displayed here </div>
+				<div class = 'filler' id = '4point'><i> four point clue displayed here</i> </div>
 			<h2> Two Point Clue </h2>
-				<div id = '2point'> two point clue displayed here </div>
+				<div class = 'filler' id = '2point'><i> two point clue displayed here</i> </div>
 			<p>	
-				<h3> If you know the answer, type the President Number here </h3>
+				<h3> If you know the answer, type the President <b>NUMBER</b> here </h3>
+				<div class = 'score' id = 'right_answer'></div>
 
 			</p>
-				<input type = 'text' id = 'button'> 
-				<button type = 'submit' onclick = 'submitAnswer();' id = 'submit'>Submit</button> <br>
-				<button type = 'button' onclick= 'onClick()' id = 'hide' > Next Clue</button>
+				<input class = 'input' type = 'text' id = 'button' placeholder="45 Donald Trump"> 
+				<button class = 'press_button' type = 'submit' onclick = 'submitAnswer();' id = 'submit'>Submit</button> <br>
+				<button class = 'press_button' type = 'button' onclick= 'onClick()' id = 'hide' > Next Clue</button>
 				<p hidden>Clicks: <a id = 'count'> 0 </a></p>
 			<p>
 				<div>
-					<input type="button" id="next_question" value="Next Question" disabled onclick = 'reloadPage()'/>
+					<input class = 'press_button' type="button" id="next_question" value="Next Question" disabled onclick = 'reloadPage()'/>
 				</div>
 				<br>
-				<div id = 'points'>No Points</div>
-				<div id = 'score'>Score = </div>
+				<div class = 'score' id = 'points'>No Points</div>
+				<div class = 'score' id = 'score'>Score = </div>
 				<br>
 				<form action = '/finish' method = 'POST'>
-					<button type = 'submit' id = 'finished'>Finish</button>
+					<button class = 'press_button' type = 'submit' id = 'finished'>Finish</button>
 				</form>
 			</p>
 		</div> 

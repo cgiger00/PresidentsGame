@@ -107,6 +107,7 @@ function printClue(answer_array) {
 	var clue = clue_num[0];
 	var ID = clue_num[1];
 	document.getElementById(ID).innerHTML = clue;
+	document.getElementById(ID).style.color = 'black';
 }
 
 function changeColor(new_color) {
@@ -143,8 +144,11 @@ function checkAnswer(right,guess,points) {
 		question_storage.push(point_worth);
 		console.log(question_storage);
 		changeColor('#F75D59');
-		return [score, point_worth];
+		return [score, point_worth, false];
 	}
+}
+function right_answer(ID) {
+	document.getElementById(ID).innerHTML = "Sorry, the correct answer is actually number " + correct;
 }
 
 var hidden = true;
@@ -179,6 +183,9 @@ function submitAnswer() {
 	newScore('score', score_total[0]);
 	pointsGot('points', score_total[1]);
 	show('next_question');
+	if (score_total[2] == false) {
+		right_answer('right_answer');
+	}
 	hide.disabled = true;
 	submit.disabled = true;
 
@@ -201,8 +208,6 @@ function makeTable(number,elementId) {
 function tableLoad() {
 	makeTable(page_load,'table');
 }
-
-console.log(question_storage);
 
 function reloadPage() {
 	page_load = page_load + 1;
@@ -269,7 +274,7 @@ function gradeCalculator(result, perfect, elementId) {
 		letter_grade = 'D';  
 	}
 	else {
-		letter_grade = 'F'
+		letter_grade = 'F';
 	}
 	document.getElementById(elementId).innerHTML = 'Grade: ' + letter_grade + ', ' + grade + '%';
 }
