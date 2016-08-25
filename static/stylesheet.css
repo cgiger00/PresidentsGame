@@ -1,9 +1,7 @@
-body {
-	background-image: url('14-wrinkled-paper-6.jpg');
-}
 h1 {
 	color: black;
 	font-family: copperplate;
+	font-size: 2.3em; 
 }
 
 h2 {
@@ -17,17 +15,52 @@ h3 {
 	font-family: palatino;
 	font-size: 1.0em;	
 }
+
 .press_button  {
 	width: 105px;
 	height: 40px;
-	border: 2px solid #2B65EC; 
-	background-color: #C2DFFF; 
+	border: 2px solid #0000A0; 
+	background-color: #1589FF;
+	color: white; 
 	text-align: center; 
 	font-family: "copperplate", cursive, sans-serif;
 	font-size: 0.8em;
 	border-radius: 3px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+.press_button:hover {
+	color: black;
+	font-family: "copperplate", cursive, sans-serif;
+	background-color: white;
+	text-decoration: none;
 }
 
+.press_button:disabled {
+	color: white;
+	font-family: "copperplate", cursive, sans-serif;
+	background-color: #D1D0CE;
+	border: 2px solid #736F6E;
+}
+
+.kill_button {
+	width: 105px;
+	height: 40px;
+	border: 2px solid #0000A0; 
+	background-color: #1589FF;
+	color: white; 
+	text-align: center; 
+	font-family: "copperplate", cursive, sans-serif;
+	font-size: 0.8em;
+	border-radius: 3px;	
+}
+
+.kill_button:hover {
+	color: black;
+	font-family: "copperplate", cursive, sans-serif;
+	background-color: white;
+	text-decoration: none;	
+}
 .input {
 	width: 100px;
 	height: 35px;
@@ -43,43 +76,11 @@ h3 {
 .score {
 	font-family: palatino;
 }
-/*.textColor {
-	color: ##C68E17;
-}
-.nextbox {
-	width: 120px;
-	height: 50px;
-	border: 5px solid #2B65EC; 
-	background-color: #C2DFFF; 
-	text-align: center; 
-	line-height: 50px
+
+#Kennedy {
+	max-width: 520px;
+	height: 292px;
+	float: right;
 }
 
-a:link {
-	color: #E5E4E2;
-	font-family: "Comic Sans MS", cursive, sans-serif;
-	text-decoration: none;
-}
-a:hover {
-	color: hotpink;
-	font-family: "Comic Sans MS", cursive, sans-serif;
-	text-decoration: none;
-}
-#buttonbox {
-	width: 125px;
-	height: 50px;
-	border: 5px solid #2B65EC; 
-	background-color: #C2DFFF; 
-	text-align: center; 
-	line-height: 50px
-	text-color: #E5E4E2;
-	font-family: "Comic Sans MS", cursive, sans-serif;
-	font-size: 0.8em;
-}
 
-#answerbox {
-	width: 120px;
-	height: 44px;
-	line-height: 20px;
-}
-*/

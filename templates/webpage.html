@@ -4,7 +4,9 @@
 		<title>Webpage</title>
 		<meta charset=utf-8>
 		<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='stylesheet.css') }}"/>
+		<script type="text/javascript" src = "{{url_for('static', filename = 'dictionary_answers.js')}}"></script>
 		<script src="{{url_for('static', filename='style.js')}}"></script>
+		<img src="{{url_for('static', filename = 'kennedy.jpg')}}" alt = 'John F Kennedy Picture' id = 'Kennedy'>
 	</head>
 	<body background-color = '#FFFFFF'>
 		<div class = 'template'>
@@ -26,7 +28,7 @@
 				<p hidden>Clicks: <a id = 'count'> 0 </a></p>
 			<p>
 				<div>
-					<input class = 'press_button' type="button" id="next_question" value="Next Question" disabled onclick = 'reloadPage()'/>
+					<input class = 'press_button' type="button" id="next_question" value="Next Question" disabled onclick = 'reloadPage();'/>
 				</div>
 				<br>
 				<div class = 'score' id = 'points'>No Points</div>

@@ -12,8 +12,7 @@ def my_form_():
 		return render_template('finshed.html')
 	else:
 		error = 'Invalid Answer'
-		return 'OK'
-
+		return 'Page Could Not Load'
 
 if __name__ == '__main__':
   app.run(debug=True)

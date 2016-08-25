@@ -3,32 +3,31 @@
 	<head>
 	<meta charset=utf-8 />
 		<title> Answer Check </title>
-		<style type="text/css">
-			body {margin: 30px;}
-		</style>
+		<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='stylesheet.css') }}"/>
+		<script type="text/javascript" src = "{{url_for('static', filename='dictionary_answers.js')}}"></script>
 		<script type = "text/javascript" src= "{{url_for('static', filename='style.js')}}">  
 		</script>			
 	</head>
 	<body>
 		<h2> Results </h2>
-		<p id = 'grade'>Grade: </p>		
+		<p class = 'score' id = 'grade'>Grade: </p>		
 		<div>
 		<p>
 			<table id = 'question_number' border="1" style = 'float:left;'>
-				<td>Question Number</td>					
+				<td><b>Question Number</b></td>					
 			</table>
 			<table id = 'points_got' border="1" style = 'float:left;'>
-				<td>Points Got</td>
+				<td><b>Points Got</b></td>
 			</table>			
 			<table id = 'points_possible' border="1" style = 'float:left;'>
-				<td>Points Possbile</td>
+				<td><b>Points Possbile</b></td>
 			</table>
 		</p>
 		</div>
 		<br>
 		<div>
 			<p>
-				<button type = 'text' onclick="showRows();" id = 'button'>see Results</button>	
+				<button class = 'kill_button' type = 'text' onclick="showRows();" id = 'button'>see Results</button>	
 			</p>
 		</div>
 	</body>
