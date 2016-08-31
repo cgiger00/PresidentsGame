@@ -11,6 +11,7 @@ function endGame() {
 	return correct;	
 }
 
+
 console.log(answers);
 function myAnswer(answer_list) //get's the correct answer for this round  
 {
@@ -31,6 +32,18 @@ var question_storage = JSON.parse(sessionStorage.getItem('question_storage')); /
 
 if (question_storage == null) {
 	question_storage = [];
+}
+
+function cleveland(correct) {
+	if (correct == 22) {
+		return 24;
+	}
+	else if (correct == 24) {
+		return 22;
+	}
+	else {
+		return correct;
+	}
 }
 
 console.log(correct);
@@ -75,7 +88,8 @@ function changeColor(new_color) {
 
 function checkAnswer(right,guess,points) { //checks answer and returns total score and how many points earned
 	var point_worth;
-	if (guess == right) {
+	var cleveland = cleveland(right)
+	if (guess == right || guess == cleveland) {
 		if (points <= 1) {
 			point_worth = 6;
 			question_storage.push(point_worth);
@@ -106,6 +120,9 @@ function checkAnswer(right,guess,points) { //checks answer and returns total sco
 	}
 }
 function right_answer(ID) { //if you get it wrong what is the right answer
+	if (correct == 35) {
+		correct = "JFBAE </3";
+	}
 	document.getElementById(ID).innerHTML = "Sorry, the correct answer is actually number " + correct;
 }
 
