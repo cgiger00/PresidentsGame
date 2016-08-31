@@ -1,7 +1,7 @@
 var answers = JSON.parse(sessionStorage.getItem('answers'));
 
 if (answers == null) {
-	answers = [ 18 , 7 , 1, 3 ];
+	answers = [ 18 , 7 , 1, 3, 10, 6, 4, 14, 9, 16, 22, 20, 33, 37, 28, 40, 35];
 }
 
 function endGame() {
@@ -70,6 +70,8 @@ function onClick() { //when user presses the next_clue
 	}
 	else {
 		document.getElementById('right_answer').innerHTML = "Sorry, no more clues are avaliable, press Finish to continue";
+		hide.disabled = true;
+		submit.disabled = true;
 	}
 
 };
@@ -88,8 +90,8 @@ function changeColor(new_color) {
 
 function checkAnswer(right,guess,points) { //checks answer and returns total score and how many points earned
 	var point_worth;
-	var cleveland = cleveland(right)
-	if (guess == right || guess == cleveland) {
+	var grover = cleveland(right)
+	if (guess == right || guess == grover) {
 		if (points <= 1) {
 			point_worth = 6;
 			question_storage.push(point_worth);

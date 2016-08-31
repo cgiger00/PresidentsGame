@@ -154,8 +154,8 @@ var pres_dict = {
 
 	"(4 pts.) I died in the state in which I was born, although I went to college in" + 
 	" a different state. During my administration, the pirate Jean Lafitte became a" +
-	" national hero, as did Captain James Lawrence, who uttered the immortal phrase, " 
-	"“Don’t give up the ship!”,
+	" national hero, as did Captain James Lawrence, who uttered the immortal phrase, " +
+	"“Don’t give up the ship!”",
 	
 	"(2 pts.) In the face of a British invasion, my wife Dolley sent my papers into the" +
 	" country and, as she headed out the door of the White House with the painting of George "+
