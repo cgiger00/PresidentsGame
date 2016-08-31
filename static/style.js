@@ -1,4 +1,17 @@
+var answers = JSON.parse(sessionStorage.getItem('answers'));
 
+if (answers == null) {
+	answers = [ 18 , 7 , 1, 3 ];
+}
+
+function endGame() {
+	if (isNaN(correct)) {
+		correct = 0;
+	}
+	return correct;	
+}
+
+console.log(answers);
 function myAnswer(answer_list) //get's the correct answer for this round  
 {
 	var x = answer_list[Math.floor(Math.random() * (answer_list.length))]
@@ -11,6 +24,7 @@ function myAnswer(answer_list) //get's the correct answer for this round
 var count = 0; //for which point clue
 var score = JSON.parse(sessionStorage.getItem('score')); //total score
 var correct = myAnswer(answers); //correct answer
+endGame();
 var page_load = JSON.parse(sessionStorage.getItem('page_load')); //for table 
 
 var question_storage = JSON.parse(sessionStorage.getItem('question_storage')); //points for table
@@ -34,11 +48,16 @@ function which_clue(dictionary,key){ //which clue to display and where
 
 };
 
-function onClick() { //when user presses the next_clue 
-	printClue(which_clue(pres_dict, correct));
-	document.getElementById('count').innerHTML = count;
-	count = count + 1;
-	return count;
+function onClick() { //when user presses the next_clue
+	if (correct != 0){ 
+		printClue(which_clue(pres_dict, correct));
+		document.getElementById('count').innerHTML = count;
+		count = count + 1;
+		return count;
+	}
+	else {
+		document.getElementById('right_answer').innerHTML = "Sorry, no more clues are avaliable, press Finish to continue";
+	}
 
 };
 
@@ -156,6 +175,9 @@ function reloadPage() { //when user presses next_question
 	sessionStorage.setItem('page_load', JSON.stringify(page_load));
 	sessionStorage.setItem('score', JSON.stringify(score));
 	sessionStorage.setItem('question_storage', JSON.stringify(question_storage));
+	sessionStorage.setItem("answers", JSON.stringify(answers));
+	endGame('right_answer');
+	console.log(answers);
 	window.location.reload();
 }
 function getQuestionArray() {

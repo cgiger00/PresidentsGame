@@ -57,5 +57,8 @@ var pres_dict = {
 	"between the “arbitrary rule of Britain over the American colonies and the ‘arbitrary " +
 	"sway’ of Virginians over their … slaves.” I provided for the freeing of my slaves at " +
 	"my wife’s death and guaranteed their support. In the 1830s, payments were still being " +
-	"made to my aging freedmen."]
+	"made to my aging freedmen."],
+
+0 : ["Sorry, no more clues are avaliable"]
+	
 };
