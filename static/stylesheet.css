@@ -1,7 +1,18 @@
+#body {
+	background-color: #00a9e0;
+}
+
 h1 {
 	color: black;
 	font-family: copperplate;
 	font-size: 2.3em; 
+}
+
+#font {
+	color: #254da3;
+	font-family: Impact; 
+	font-size: 20em; 
+	text-align: center;
 }
 
 h2 {

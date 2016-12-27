@@ -1,7 +1,7 @@
 var answers = JSON.parse(sessionStorage.getItem('answers'));
 
 if (answers == null) {
-	answers = [ 18 , 7 , 1, 3, 10, 6, 4, 14, 9, 16, 22, 20, 33, 37, 28, 40, 35];
+	answers = [ 18 , 7 , 1, 3, 10, 6, 4, 14, 9, 16, 22, 20, 33, 27, 28, 40, 35];
 }
 
 function endGame() {
@@ -114,6 +114,9 @@ function checkAnswer(right,guess,points) { //checks answer and returns total sco
 			return [score, point_worth];		
 		}
 	}
+	else if (guess.toLowerCase() == "hillary clinton") {
+		window.location.assign("http://127.0.0.1:5000/hillYES");
+	}
 	else {
 		point_worth = 0; /*!!!!!!*/
 		question_storage.push(point_worth);
@@ -127,6 +130,7 @@ function right_answer(ID) { //if you get it wrong what is the right answer
 	}
 	document.getElementById(ID).innerHTML = "Sorry, the correct answer is actually number " + correct;
 }
+
 
 var hidden = true;
 function show(elementId) { //enable/disable buttons

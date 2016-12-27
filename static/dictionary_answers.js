@@ -35,7 +35,7 @@ var pres_dict = {
 	"(2 pts.) At age 45, I became president of the college that counted James Madison among "+
 	"its graduates. This post was my stepping stone into politics."],
 
-37 : ["(6 pts.) I said, “Politics … makes me sick.” My wife Nellie pushed me into"+
+27 : ["(6 pts.) I said, “Politics … makes me sick.” My wife Nellie pushed me into"+
 	" accepting the nomination to the presidency. Ten weeks into my presidency, Nellie "+
 	"suffered a stroke that partially paralyzed her.",
 

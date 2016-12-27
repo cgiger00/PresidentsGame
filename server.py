@@ -14,5 +14,14 @@ def my_form_():
 		error = 'Invalid Answer'
 		return 'Page Could Not Load'
 
+@app.route('/hillYES', methods= ['POST','GET'])
+def easter_egg():
+    error = None
+    if request.method == 'GET':
+        return render_template('hillary_clinton.html')
+    else:
+        error = 'Invalid Answer'
+        return 'Page could not load'
+
 if __name__ == '__main__':
   app.run(debug=True)

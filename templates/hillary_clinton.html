@@ -1,0 +1,45 @@
+ <!DOCTYPE html>
+ <html>
+ <head>
+ 	<title>Hillary Clinton Easter Egg</title>
+ 	<meta charset=utf-8>
+ 	<link rel="stylesheet" type="text/css" href= "{{ url_for('static',filename='stylesheet.css') }}">
+ 	<script src="{{url_for('static', filename='style.js')}}"></script>
+ 	<script>	
+ 		function setColor() {
+	 		var body = document.getElementById("body");
+	 		var font = document.getElementById("font");
+
+	 		var a = 'rgb(0, 169, 224)';
+	 		var b = 'rgb(37, 77, 163)';
+
+	 		font.style.color = a;
+	 		body.style.backgroundColor = b;
+	 		
+	 		var interval = setInterval(changeTwo, 500);	 	 		
+
+	 		function changeTwo() {
+	 			if (body.style.backgroundColor == b) {
+			 		body.style.backgroundColor = a;
+			 		font.style.color = b;
+			 	}
+			 	else if (body.style.backgroundColor == a) {
+			 		body.style.backgroundColor = b;
+			 		font.style.color = a;
+			 	}
+			 	else {
+			 		console.log("this is not working")
+			 	}
+
+	 		}
+			setTimeout(function() {window.location.assign("http://127.0.0.1:5000/"); }, 3000);
+ 		}
+
+ 	</script>
+ </head>
+ <body onload = 'setColor()' class = "hill_yes" id = "body">
+ <div>
+ 	<h1 class = "hill_yes" id = "font">HILL YES</h1>
+ </div>
+ </body>
+ </html>
