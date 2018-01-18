@@ -8,7 +8,8 @@
 		<script src="{{url_for('static', filename='style.js')}}"></script>
 		<img src="{{url_for('static', filename = 'kennedy.jpg')}}" alt = 'John F Kennedy Picture' id = 'Kennedy'>
 	</head>
-	<body background-color = '#FFFFFF'>
+
+	<body>
 		<div class = 'template'>
 			<h1> President Game</h1>
 			<h2> Six Point Clue</h2>
@@ -40,4 +41,15 @@
 			</p>
 		</div> 
 		</body>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>		
+		<script type="text/javascript">		
+			$('#button').keyup(function() {
+				if ($('#button').val().toLowerCase().indexOf("rainbow") != -1 ) {
+					$('body').css('background','linear-gradient(to bottom, rgba(255,44,40,1) 0%,rgba(255,128,0,1) 17%,rgba(255,246,0,1) 34%,rgba(0,170,0,1) 50%,rgba(0,219,201,1) 66%,rgba(43,0,216,1) 83%,rgba(165,46,121,1) 100%)');
+				}
+				else {
+					$('body').css('background','white');
+				}
+			})
+		</script>
 </html>

@@ -2,6 +2,10 @@
 	background-color: #00a9e0;
 }
 
+body {
+	background: 'white'; 
+}
+
 h1 {
 	color: black;
 	font-family: copperplate;
